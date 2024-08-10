@@ -1,14 +1,18 @@
 local augroup = vim.api.nvim_create_augroup("eyesight", { clear = true })
 
 local function remind()
-	require("notify")("Loook at something 6m away for 20 seconds")
+	vim.notify("Look at something 6m away for 20 seconds", "error", {
+		title = "Eyesight",
+	})
 end
 
 Eyesight_Time = 0
 
 local function set_time()
 	Eyesight_Time = os.time()
-	require("notify")("Starting the 20 minut eyesight timer")
+	vim.notify("Starting the eysight timer", "message", {
+		title = "Eyesight",
+	})
 end
 
 local function check_time()
